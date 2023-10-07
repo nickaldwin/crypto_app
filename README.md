@@ -1,3 +1,3 @@
 # crypto_app
 
-A crypto marketplace and  Croud Funding
+A crypto marketplace and  Crowd Funding
