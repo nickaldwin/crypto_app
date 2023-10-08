@@ -43,7 +43,7 @@ contract Crowdfunfing {
         
         campaign Storage campaign = campaigns [_id];
 
-        campaign.donatiors.push(msg.senser); //to be continue
+        campaign.donatiors.push(msg.sender);
     }
 
     function getDonators(){
