@@ -40,18 +40,31 @@ contract Crowdfunfing {
 
     function donateCampaign(uint256_id, ) public payable {
         uint256 amount = msg.value;
-        
+
         campaign Storage campaign = campaigns [_id];
 
         campaign.donatiors.push(msg.sender);
+        campaign.donations.push(amount);
+
+        (bool sent,) = payable(campaign.owner).call{value:amount}();
+
+        if (sent) {
+            campaign.ammountCollected  = campaign.ammountCollected + amount;
+        }
+        
     }
 
-    function getDonators(){
+    function getDonators(uint256_id) view public return (address[] memory, uint256[] memory){
+        return(campaigns[_id].donatiors, campaign[_id].donations)
+    }//return the mapping
 
-    }
+    function getCampaign() public return(Campaign[] memory){
+        Campaign[] memory allCampaign = new Campaign[](numberOfCampaigns);
 
-    function getCampaign(){
-
+        for (uint i = 0; i < numberOfCampaigns; i++) {
+            Campaign storage item = campaigns[i]
+            allCampaigns[i] = item;
+        }
 
     }
 
