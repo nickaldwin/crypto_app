@@ -66,6 +66,8 @@ contract Crowdfunfing {
             allCampaigns[i] = item;
         }
 
+        return allCampaigns;
+
     }
 
 }
