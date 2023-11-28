@@ -1,5 +1,4 @@
-# crypto_app
 
-A crypto marketplace and  Crowd Funding
+A crypto marketplace 
 
 run `npm run deploy` to deploy the project
